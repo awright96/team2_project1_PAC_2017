@@ -23,7 +23,7 @@
 \begin{document}
 \maketitle
 \begin{abstract}
-	content...
+    ABSTRACT
 \end{abstract}
 \newcommand{\defproblem}[4]{%
   \hfill\\\smallskip\noindent%
@@ -37,36 +37,46 @@
   \smallskip%
 }%
 \section{Introduction}
-Scheduling on Directed Acyclic Graph (DAG) is a crucial problem whose 
-applications can be found in many ways, such task scheduling in parallel 
-systems and workflow distributions. Typically, an optimal scheduling 
-would on a DAG would lead to a minimized completion time,
-reduced costs. etc. Due to the significance of this problem, it has been 
-extensively studies. Challenges arise when it comes to find an optimal solution 
-to this problem, as this problem is NP-hard, finding an optimal solution may 
-often be computationally prohibitive to find. 
+Scheduling on Directed Acyclic Graphs (DAG) is a crucial problem with many
+applications such as in the cases of task scheduling in parallel
+systems and workflow distributions. Typically, an optimal scheduling
+on a DAG would lead to a minimized completion time,
+reducing costs, etc.. Due to the significance of this problem, it has been
+extensively studied; challenges arise when it comes to find an optimal solution
+to this problem, as this problem is NP-hard. Finding an optimal solution using
+current methods will
+more likely than not
+be computationally prohibitive to find.
 
-Although many works have been carried out to find an solution to this, most 
-of those work rely on heuristic methods (e.g. HEFT \cite{topcuoglu2002performance}) or 
-meta-heuristics (e.g. generic algorithms) to solve this problem. 
-While those problems may work well under some conditions, 
-it cannot always promise to find an efficient answer.  
+Although much work has been carried out to find an solution to this problem, most
+of this work relys on heuristic methods (e.g. HEFT \cite{topcuoglu2002performance}) or
+meta-heuristics (e.g. generic algorithms) to solve this problem.
+While these problems may work well under certain conditions,
+they do not provide an efficient, general solution.
 
-One alternative solution is to come up with an Fixed Parameter Tractable 
-(FPT)
+One possible alternative solution to this problem is to develop a Fixed
+parameter Tractable (FPT)
 algorithm to solve this problem. However, to the best of our knowledge,
-there is no FPT available 
-no FPT-hardness (?) result is given for this problem.
+limited work has been done in the area of FPT algorithms in scheduling
+research, and no work has been done on the problem of developing FPT algorithms
+for dependency scheduling problems.
 
 \section{Open Problem Description}
-The open problem we identified is makespan scheduling on a DAG.
-Given a weighted Directed Acyclic Graph $G=(V,E)$, the vertex
-$v \in V$ denotes a task to be executed, while the weight on $v$ 
-stands for the execution time. A directed edge on $G$ reflects
+The open problem we have identified is makespan scheduling on a DAG.
+Given a weighted Directed Acyclic Graph, $G=(V,E)$, the vertex
+$v \in V$ denotes a task to be executed, while the weight on $v$
+represents the execution time. A directed edge on $G$ reflects
 dependencies among tasks, an edge from vertex $u$ to $v$
-means task $v$ cannot be started unless $u$ has been processed. 
-Our objective is, given M identical machines, we want find out the execution
-orders for those tasks in order minimize the time to completion.
+means task $v$ cannot be started unless $u$ has been completed.
+Our objective is, given M identical machines to process tasks on, to find out the execution
+orders for those tasks in order minimize the time to completion of all tasks.
+
+
+\begin{definition}
+The \emph{makespan} of a schedule of tasks $S$ is the total time to completion
+from the start of the first task to the end of the last task.
+\end{definition}
+
 
 \defproblem{Makespan scheduling on Directed Acyclic Graph}%
 {A directed graph $G = \{V, E\}$ with a function $W_v: V \to \mathbb{R}$,
@@ -77,35 +87,38 @@ $M$}%
 which  minimizes the makespan while respecting
 dependencies?}%
 
-A candidate to be used as a parameter is M, the total number of machines
-we have. Another parameter we would consider would be treewidth.
+A possible parameter for development of an FPT algorithm might be the number of
+execution machines $M$. Another parameter which makes some intuitive sense may
+be the tree width of the graph.
 
 \section{Related Questions Works}
-To the best our knowledge, the FPT hardness result and solutions to the 
-makespan scheduling for DAG remains still open. 
-However, we observer that this problems is closely related to makespan scheduling.
+To the best our knowledge, the FPT hardness result and solutions to the
+makespan scheduling for DAG still remains open.
+However, we observe that this problems is closely related to the problem of
+makespan scheduling without dependencies.
 
-For a makespan scheduling problem is that for $n$ weighted tasks with no
-dependencies among them, is there any ways to find a scheduling of $n$
+The makespan scheduling problem states that for $n$ weighted tasks with no
+dependencies among them, is there a way to find a scheduling of $n$
 tasks so that total time to completion is minimized. The work of~\cite{mnich2015scheduling}
-shows that there is a FPT-algorithm to solve this problem within $O(?)$ time,
-when this problem is parameterized by the $p_{max}$, the task with longest
+shows that there is a FPT-algorithm to solve this problem
+when the problem is parameterized by $p_{max}$, the task with longest
 execution time.
 
-Due to the similarities between these two problems, we can show that make
-span scheduling can trivially be reduced to DAG makespan scheduling, meaning
-that DAG makespan is more difficult to solve:
-We create two terminal vertices $src$ and $dst$ with 0 execution time. For each
-task, we create a vertice $u$ with weight equal to its execution time. For each
-vertex $u$, we add an edge between $(src,u)$ and one edge between $(u,dst)$. 
-When this step is done, we have a DAG. 
-This implies that if we have a solver to solve any makespan
-scheduling on DAG, we could makespan scheduling problem. 
+Due to the similarities between these two problems, we can show that makespan
+scheduling can trivially be reduced to DAG makespan scheduling, meaning
+that DAG makespan is more difficult to solve. To show this,
+we create two terminal vertices $src$ and $dst$ with 0 execution time. For each
+task, we create a vertex $u$ with weight equal to its execution time. For each
+vertex $u$, we add an edge between $(src,u)$ and one edge between $(u,dst)$.
+When this is done, we have a DAG.
+This implies that if we have a solver to solve any makespan minimized
+scheduling on DAG, we could also apply it to the makespan scheduling problem
+without dependencies.
 
 \section{Special Cases (and potential solutions?)}
 There are two special cases of this problem that could be solved trivially:
 Case 1: $k = 1$ or $k >= |treewidth|$ \\
-Case 2: All tasks are dependent on each other (form a line from $src$ to $dst$) 
+Case 2: All tasks are dependent on each other (form a line from $src$ to $dst$)
 or there is no dependcies at all (makespan scheduling).
 
 \bibliographystyle{unsrt}
