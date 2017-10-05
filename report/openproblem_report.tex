@@ -82,15 +82,29 @@ we have. Another parameter we would consider would be treewidth.
 
 \section{Related Questions Works}
 To the best our knowledge, the FPT hardness result and solutions to the 
-makespan scheduling for DAG is still open. 
-However, this problems is closely related to makespan scheduling, which
-is proven to be $w[1]$-hard, and a FPT-algorithm is presented to solve
-this problem within $O(?)$ time.
+makespan scheduling for DAG remains still open. 
+However, we observer that this problems is closely related to makespan scheduling.
 
+For a makespan scheduling problem is that for $n$ weighted tasks with no
+dependencies among them, is there any ways to find a scheduling of $n$
+tasks so that total time to completion is minimized. The work of~\cite{keylist}
+shows that there is a FPT-algorithm to solve this problem within $O(?)$ time,
+when this problem is parameterized by the $p_{max}$, the task with longest
+execution time.
 
+Due to the similarities between these two problems, we can show that make
+span scheduling can trivially be reduced to DAG makespan scheduling, meaning
+that DAG makespan is more difficult to solve:
+We create two terminal vertices $src$ and $dst$ with 0 execution time. For each
+task, we create a vertice $u$ with weight equal to its execution time. For each
+vertex $u$, we add an edge between $(src,u)$ and one edge between $(u,dst)$. 
+When this step is done, we have a DAG. 
+This implies that if we have a solver to solve any makespan
+scheduling on DAG, we could makespan scheduling problem. 
 
 \section{Special Cases (and potential solutions?)}
-Case 1: $k = 1$ or $k >= |treewidth|$
+There are two special cases of this problem:
+Case 1: $k = 1$ or $k >= |treewidth|$ \\
 Case 2: makespan scheduling.
 
 \end{document}
