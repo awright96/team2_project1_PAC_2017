@@ -22,27 +22,75 @@
 
 \begin{document}
 \maketitle
-
+\begin{abstract}
+	content...
+\end{abstract}
 \newcommand{\defproblem}[4]{%
   \hfill\\\smallskip\noindent%
   \begin{tabularx}{\textwidth}{|l X|}%
     \hline%
-    \multicolumn{2}{|l|}{\pname{#1}}\\%
+    \multicolumn{2}{|l|}{{#1}}\\%
     \textbf{Input:}&#2\\%
-    \textbf{Parameter:}&#3\\%
+%    \textbf{Parameter:}&#3\\%
     \textbf{Question:}&#4\smallskip\\\hline%
   \end{tabularx}%
   \smallskip%
 }%
+\section{Introduction}
+Scheduling on Directed Acyclic Graph (DAG) is a crucial problem whose 
+applications can be found in many ways, such task scheduling in parallel 
+systems and workflow distributions. Typically, an optimal scheduling 
+would on a DAG would lead to a minimized completion time,
+reduced costs. etc. Due to the significance of this problem, it has been 
+extensively studies. Challenges arise when it comes to find an optimal solution 
+to this problem, as this problem is NP-hard, finding an optimal solution may 
+often be computationally prohibitive to find. 
 
-\defproblem{Minimal Makespan}%
+Although many works have been carried out to find an solution to this, most 
+of those work rely on heuristic methods (e.g. HEFT\cite{keylist}) or 
+meta-heuristics (e.g. generic algorithms) to solve this problem. 
+While those problems may work well under some conditions, 
+it cannot always promise to find an efficient answer.  
+
+One alternative solution is to come up with an Fixed Parameter Tractable 
+(FPT)
+algorithm to solve this problem. However, to the best of our knowledge,
+there is no FPT available 
+no FPT-hardness (?) result is given for this problem.
+
+\section{Open Problem Description}
+The open problem we identified is makespan scheduling on a DAG.
+Given a weighted Directed Acyclic Graph $G=(V,E)$, the vertex
+$v \in V$ denotes a task to be executed, while the weight on $v$ 
+stands for the execution time. A directed edge on $G$ reflects
+dependencies among tasks, an edge from vertex $u$ to $v$
+means task $v$ cannot be started unless $u$ has been processed. 
+Our objective is, given M identical machines, we want find out the execution
+orders for those tasks in order minimize the time to completion.
+
+\defproblem{Makespan scheduling on Directed Acyclic Graph}%
 {A directed graph $G = \{V, E\}$ with a function $W_v: V \to \mathbb{R}$,
  where $W_v$ is vertex weights, and a set of identical machines,
 $M$}%
-{Tree width $k$}%
+{}%
 {Is there a Fixed Parameter Tractable algorithm parameterized by tree width
-which gives a schedule of jobs to minimize the makespan while respecting
+which  minimizes the makespan while respecting
 dependencies?}%
 
+A candidate to be used as a parameter is M, the total number of machines
+we have. Another parameter we would consider would be treewidth.
+
+\section{Related Questions Works}
+To the best our knowledge, the FPT hardness result and solutions to the 
+makespan scheduling for DAG is still open. 
+However, this problems is closely related to makespan scheduling, which
+is proven to be $w[1]$-hard, and a FPT-algorithm is presented to solve
+this problem within $O(?)$ time.
+
+
+
+\section{Special Cases (and potential solutions?)}
+Case 1: $k = 1$ or $k >= |treewidth|$
+Case 2: makespan scheduling.
 
 \end{document}
