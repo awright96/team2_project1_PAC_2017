@@ -103,8 +103,9 @@ This implies that if we have a solver to solve any makespan
 scheduling on DAG, we could makespan scheduling problem. 
 
 \section{Special Cases (and potential solutions?)}
-There are two special cases of this problem:
+There are two special cases of this problem that could be solved trivially:
 Case 1: $k = 1$ or $k >= |treewidth|$ \\
-Case 2: makespan scheduling.
+Case 2: All tasks are dependent on each other (form a line from $src$ to $dst$) 
+or there is no dependcies at all (makespan scheduling).
 
 \end{document}
