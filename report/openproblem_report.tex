@@ -120,11 +120,23 @@ This implies that if we have a solver to solve any makespan minimized
 scheduling on DAG, we could also apply it to the makespan scheduling problem
 without dependencies.
 
-\section{Special Cases (and potential solutions?)}
-There are two special cases of this problem that could be solved trivially:
-Case 1: $k = 1$ or $k >= |treewidth|$ \\
-Case 2: All tasks are dependent on each other (form a line from $src$ to $dst$)
-or there are no dependencies at all (makespan scheduling).
+\section{Special Cases}
+There are four special cases of this problem that could be solved:
+\begin{itemize}
+\item $M = 1$: A trivial case, where we can do a topological sort and use this
+ordering as the order for task execution.
+  \item $M \geq |treewidth|$ of $G$: The treewidth of$G$ is the maximum 
+  number of tasks can be run at the same time. With the number of machines 
+  greater than the treewidth, we can schedule any task to run when it 
+  gets ready. The total running time would be the longest path in G.
+\item Each task except for $src$ and $dst$ is dependent on another task,
+while at the same time, while at the same time, depend by another task.
+In another word, those task would form a line. This is similar to $M=1$
+case, and we can solve this problem by scheduling each task one by one.
+\item There are no dependencies at all, which is same to the makespan
+scheduling, and the method in~\cite{mnich2015scheduling} would apply
+to this problem.
+\end{itemize}
 
 \bibliographystyle{unsrt}
 \bibliography{reference}
