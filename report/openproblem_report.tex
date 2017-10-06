@@ -96,7 +96,7 @@ A possible parameter for development of an FPT algorithm might be the number of
 execution machines $M$. Another parameter which makes some intuitive sense may
 be the tree width of the graph.
 
-\section{Related Questions Works}
+\section{Related Questions}
 To the best our knowledge, the FPT hardness result and solutions to the
 makespan scheduling for DAG still remains open.
 However, we observe that this problems is closely related to the problem of
@@ -121,13 +121,13 @@ scheduling on DAG, we could also apply it to the makespan scheduling problem
 without dependencies.
 
 \section{Special Cases}
-There are four special cases of this problem that could be solved:
+There are four special cases of this problem that show promise to be solved:
 \begin{itemize}
 \item $M = 1$: A trivial case, where we can do a topological sort and use this
 ordering as the order for task execution.
-  \item $M \geq |treewidth|$ of $G$: The treewidth of$G$ is the maximum 
-  number of tasks can be run at the same time. With the number of machines 
-  greater than the treewidth, we can schedule any task to run when it 
+  \item $M \geq |treewidth|$ of $G$: The treewidth of$G$ is the maximum
+  number of tasks can be run at the same time. With the number of machines
+  greater than the treewidth, we can schedule any task to run when it
   gets ready. The total running time would be the longest path in G.
 \item Each task except for $src$ and $dst$ is dependent on another task,
 while at the same time, while at the same time, depend by another task.
@@ -139,11 +139,11 @@ to this problem.
 \end{itemize}
 
 \section{Conclusion}
-In this report, we identified the Makespan Scheduling with Dependent 
-Task as an open problem for a Fixed Parameter Algorithms. The related work
+In this report, we identified Makespan Scheduling with Dependent
+Tasks as an open problem in the area Fixed Parameter Algorithms. The related work
 in makespan scheduling is reviewed, and special cases where we can
-obtain an answer is analyzed.
-    
+obtain an answer for are analysed.
+
 \bibliographystyle{unsrt}
 \bibliography{reference}
 \end{document}
