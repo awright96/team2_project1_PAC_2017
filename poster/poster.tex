@@ -45,6 +45,7 @@
 \usepackage{varwidth}
 \usepackage{multicol}
 \usepackage{hyperref}
+\usepackage{tabularx}
 \usetikzlibrary{arrows,automata,positioning,shapes,fit}
 
 
@@ -128,6 +129,18 @@
 
 \begin{document}
 
+\newcommand{\defproblem}[4]{%
+  \hfill\\\smallskip\noindent%
+  \begin{tabularx}{.45 \textwidth}{|l X|}%
+    \hline%
+    \multicolumn{2}{|l|}{{#1}}\\%
+    \textbf{Input:}&#2\\%
+    \textbf{Parameter:}&#3\\%
+    \textbf{Question:}&#4\smallskip\\\hline%
+  \end{tabularx}%
+  \smallskip%
+}%
+
 
 \TPGrid[0.5in,0.5in]{23}{35}
 
@@ -164,12 +177,11 @@
  \end{center}
 \end{textblock}
 
-% NC State logo brick to left of title
-% \begin{textblock}{6}(0,0)
-% \begin{center}
-% \includegraphics[width=4in]{images/ncsu.png}
-% \end{center}
-% \end{textblock}
+ \begin{textblock}{6}(0,1.5)
+ \begin{center}
+ \includegraphics[width=4in]{images/ncsu.png}
+ \end{center}
+ \end{textblock}
 
 
 
@@ -183,15 +195,16 @@
 % We defined it above to use the Wolfpack Red color
 % To make sure all headers are the same height, we hid two "Q"s in the header
 % We hid them by coloring them with Wolfpack Red
-\LHead{\parbox{11.2in}{\begin{center}\textcolor{WolfpackRed}{Q}Motivation and Use Cases \textcolor{WolfpackRed}{Q}\end{center}}}\\ %*2*
+\LHead{\parbox{22.5in}{\begin{center}\textcolor{WolfpackRed}{Q}Motivation and Use Cases \textcolor{WolfpackRed}{Q}\end{center}}}\\ %*2*
 \vspace{0.35in}
 % We're inputting content about graphs in general
-
+\begin{multicols}{2}
 \input{tex/problem.tex}
 
+\end{multicols}
 \end{textblock}
 
-\begin{textblock}{22.5}(0,17)
+\begin{textblock}{11.25}(11.5,22)
 
 
 \LHead{\parbox{11.43in}{\begin{center}\textcolor{WolfpackRed}{Q}Definitions\textcolor{WolfpackRed}{Q}\end{center}}}\\ %*2*
@@ -205,8 +218,8 @@
 %                   Related Work
 %***************************************************************
 %This is a block on the left
-\begin{textblock}{11.25}(0,20)
-\LHead{\parbox{11.43in}{\begin{center}\textcolor{WolfpackRed}{Q}Related Work\textcolor{WolfpackRed}{Q}\end{center}}}\\ %*2*
+\begin{textblock}{11.25}(0,22)
+\LHead{\parbox{11.25in}{\begin{center}\textcolor{WolfpackRed}{Q}Related Work\textcolor{WolfpackRed}{Q}\end{center}}}\\ %*2*
 
 \vspace{0.35in}
 
@@ -221,7 +234,7 @@
 %***************************************************************
 
 %This places a block on the right hand side
-\begin{textblock}{11.25}(11.75,24)
+\begin{textblock}{11.25}(11.75,26)
 \LHead{\parbox{11.23in}{\begin{center}\textcolor{WolfpackRed}{Q}Research Ideas\textcolor{WolfpackRed}{Q}\end{center}}}\\ %*2*
 
 \input{tex/research_ideas.tex}
