@@ -1,30 +1,65 @@
-\Large {\bf Scheduling for Tasks with Dependencies}
+\Large
+Makespan scheduling with DAG
 
-\large Scheduling on Directed Acyclic Graphs (DAG) is a crucial problem with
-applications in areas such as task scheduling, parallel processing, and
-workflow distributions. We propose the search for a Fixed Parameter Tractable
-(FPT) algorithm for scheduling with dependencies. The problem as stated is:
+\begin{tabular}{ l l }
+	DAG $G = (V,E)$~ & workflow to be scheduled\\
+	Vertex $v \in V$ & tasks in workflow \\
+	Edge $(u,v) \in E$ & dependencies of tasks \\
+	                   & ~~task $v$ relies on $u$\\
+	Vertex Weight $w_v$ & required Processing Time for $v$\\
+	Machine $M$ & machines to run tasks on\\
+\end{tabular}
 
-\defproblem{Makespan scheduling on Directed Acyclic Graph}%
-{A directed graph $G = \{V, E\}$ with a function $W_v: V \to \mathbb{R}$,
- where $W_v$ is vertex weights, and a set of identical machines,
-$M$}%
-{Tree width of $G = k$}%
-{Is there a Fixed Parameter Tractable algorithm parameterized by tree width
-which  minimizes the makespan while respecting
-dependencies?}%
 
-\large Given a s set of machines and dependent task
+\textbf{Objective:} Find an assignment of tasks to machines $\mathcal{M}$ $\rightarrow$ total
+time to completion is minimized
 
+\textbf{Open Questions}: a FPT algorithm for this problem?
+\vskip 1em
 \begin{figure}[h]
-	\includegraphics*[width=\linewidth]{images/Fig1.png}
+\begin{tabularx}{1\textwidth}{|l|X|}%
+	\hline
+	\multicolumn{2}{|c|}{{\textbf{Makespan scheduling on DAG}}}\\%
+	\hline%
+	\textbf{Input:} & A Directed Acyclic Graph $G = \{V, E\}$ \\
+	& Vertex weight $W$\\
+	& A set of identical machines $M$\\
+	\textbf{Parameter:} & To be explored\\%
+	\textbf{Objective:} & FPT algorithm to minimize makespan\smallskip\\
+	\hline
+\end{tabularx}%
 \end{figure}
 
-What is an optimal assignment of tasks to minimize the time to execute all of
-the tasks?
+%\large Scheduling on Directed Acyclic Graphs (DAG) is a crucial problem with
+%applications in areas such as task scheduling, parallel processing, and
+%workflow distributions. We propose the search for a Fixed Parameter Tractable
+%(FPT) algorithm for scheduling with dependencies. The problem as stated is:
 
-An optimal assignment to minimize makespan:
+%\defproblem{Makespan scheduling on Directed Acyclic Graph}%
+%{A directed graph $G = \{V, E\}$ with a function $W_v: V \to \mathbb{R}$,
+% where $W_v$ is vertex weights, and a set of identical machines,
+%$M$}%
+%{Tree width of $G = k$}%
+%{Is there a Fixed Parameter Tractable algorithm parameterized by tree width
+%which  minimizes the makespan while respecting
+%dependencies}%
 
-\begin{figure}[h]
-	\includegraphics*[width=\linewidth]{images/Fig2.png}
-\end{figure}
+
+%\hfill\\\smallskip\noindent%
+%
+%\smallskip%
+
+%\large Given a s set of machines and dependent task
+%
+%\begin{figure}[h]
+%	\includegraphics*[width=\linewidth]{images/Fig1.png}
+%\end{figure}
+%
+%What is an optimal assignment of tasks to minimize the time to execute all of
+%the tasks?
+%
+%An optimal assignment to minimize makespan:
+%
+%\begin{figure}[h]
+%	\includegraphics*[width=\linewidth]{images/Fig2.png}
+%\end{figure}
