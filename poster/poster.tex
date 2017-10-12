@@ -207,7 +207,7 @@
 %***************************************************************
 %                    Problem
 %***************************************************************
-\begin{textblock}{11.2}(0,22)
+\begin{textblock}{11.2}(0,21.5)
 	% This is a header
 	% We defined it above to use the Wolfpack Red color
 	% To make sure all headers are the same height, we hid two "Q"s in the header
@@ -227,7 +227,7 @@
 %                   Related Work
 %***************************************************************
 %This is a block on the left
-\begin{textblock}{11.25}(11,10)
+\begin{textblock}{11}(11.75,12)
 \LHead{\parbox{11.25in}{\begin{center}\textcolor{WolfpackRed}{Q}Related Work\textcolor{WolfpackRed}{Q}\end{center}}}\\ %*2*
 
 \vspace{0.35in}
@@ -243,7 +243,7 @@
 %***************************************************************
 
 %This places a block on the right hand side
-\begin{textblock}{11.25}(11.75,26)
+\begin{textblock}{11.25}(11.75,22)
 \LHead{\parbox{11.23in}{\begin{center}\textcolor{WolfpackRed}{Q}Research Ideas\textcolor{WolfpackRed}{Q}\end{center}}}\\ %*2*
 
 \input{tex/research_ideas.tex}
@@ -251,7 +251,21 @@
 \bibliography{reference}
 \end{textblock}
 
+%***************************************************************
+%                   Definitions
+%***************************************************************
 
+%This places a block on the right hand side
+\begin{textblock}{11.2}(11.75,4)
+	\LHead{\parbox{11in}{\begin{center}\textcolor{WolfpackRed}{Q}Definitions\textcolor{WolfpackRed}{Q}\end{center}}}\\ %*2*
+	
+	\input{tex/definitions.tex}
+	\bibliographystyle{unsrt}
+	\bibliography{reference}
+\end{textblock}
 
+\begin{textblock}{11.2}(11.75,30.5)
+	\Large \textbf{Reference} \centering
+\end{textblock}
 
 \end{document}
