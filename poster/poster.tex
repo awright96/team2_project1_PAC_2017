@@ -47,7 +47,9 @@
 \usepackage{hyperref}
 \usepackage{tabularx}
 \usetikzlibrary{arrows,automata,positioning,shapes,fit}
-
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{mathrsfs}
 
 % These colours are tried and tested for titles and headers. Don't
 % over use color!
@@ -131,7 +133,7 @@
 
 \newcommand{\defproblem}[4]{%
   \hfill\\\smallskip\noindent%
-  \begin{tabularx}{.45 \textwidth}{|l X|}%
+  \begin{tabularx}{.45 \textwidth}{|l|X|}%
     \hline%
     \multicolumn{2}{|l|}{{#1}}\\%
     \textbf{Input:}&#2\\%
@@ -182,43 +184,50 @@
  \includegraphics[width=4in]{images/ncsu.png}
  \end{center}
  \end{textblock}
+%***************************************************************
+%                    Problem
+%***************************************************************
+\begin{textblock}{11.2}(0,4)
+	% This is a header
+	% We defined it above to use the Wolfpack Red color
+	% To make sure all headers are the same height, we hid two "Q"s in the header
+	% We hid them by coloring them with Wolfpack Red
+	\LHead{\parbox{11.2in}{\begin{center}\textcolor{WolfpackRed}{Q}Motivation and Use Cases \textcolor{WolfpackRed}{Q}\end{center}}}\\ %*2*
+	
+	% We're inputting content about graphs in general
+	%\begin{multicols}{2}
+	\input{tex/motivations.tex}
+	
+	%\end{multicols}
+\end{textblock}
+
 
 
 
 %***************************************************************
 %                    Problem
 %***************************************************************
-
-%This is a full-width textblock
-\begin{textblock}{22.5}(0,2.75)
-% This is a header
-% We defined it above to use the Wolfpack Red color
-% To make sure all headers are the same height, we hid two "Q"s in the header
-% We hid them by coloring them with Wolfpack Red
-\LHead{\parbox{22.5in}{\begin{center}\textcolor{WolfpackRed}{Q}Motivation and Use Cases \textcolor{WolfpackRed}{Q}\end{center}}}\\ %*2*
-\vspace{0.35in}
-% We're inputting content about graphs in general
-\begin{multicols}{2}
-\input{tex/problem.tex}
-
-\end{multicols}
+\begin{textblock}{11.2}(0,22)
+	% This is a header
+	% We defined it above to use the Wolfpack Red color
+	% To make sure all headers are the same height, we hid two "Q"s in the header
+	% We hid them by coloring them with Wolfpack Red
+	\LHead{\parbox{11.2in}{\begin{center}\textcolor{WolfpackRed}{Q}Problem Definition \textcolor{WolfpackRed}{Q}\end{center}}}\\ %*2*
+	
+	% We're inputting content about graphs in general
+	%\begin{multicols}{2}
+	\input{tex/problem.tex}
+		
+	%\end{multicols}
 \end{textblock}
 
-\begin{textblock}{11.25}(11.5,22)
 
-
-\LHead{\parbox{11.43in}{\begin{center}\textcolor{WolfpackRed}{Q}Definitions\textcolor{WolfpackRed}{Q}\end{center}}}\\ %*2*
-\vspace{0.25in}
-\input{tex/definitions.tex}
-
-
-\end{textblock}
 
 %***************************************************************
 %                   Related Work
 %***************************************************************
 %This is a block on the left
-\begin{textblock}{11.25}(0,22)
+\begin{textblock}{11.25}(11,10)
 \LHead{\parbox{11.25in}{\begin{center}\textcolor{WolfpackRed}{Q}Related Work\textcolor{WolfpackRed}{Q}\end{center}}}\\ %*2*
 
 \vspace{0.35in}
